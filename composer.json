@@ -1,0 +1,17 @@
+{
+    "name": "qshurick/logger",
+    "description": "Logger abstract layer",
+    "keywords": [
+        "framework",
+        "zf2",
+        "logging"
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "2.3.*",
+        "monolog/monolog": "1.10.x"
+    },
+    "autoload": {
+        "psr-4": { "Logger\\": "src/" }
+    }
+}
