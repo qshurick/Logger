@@ -16,15 +16,15 @@ class Logger {
     protected static $provider;
 
     public static function load(array $options = array()) {
-        $adapterClass = isset($options['adapter']) ? $options['adapter'] : '\\Application\\Logger\\Adapters\\Monolog';
+        $adapterClass = isset($options['adapter']) ? $options['adapter'] : '\\Logger\\Adapters\\Monolog';
         if (!class_exists($adapterClass)) {
             switch (strtolower($adapterClass)) {
                 case 'monolog':
-                    $adapterClass = '\\Application\\Logger\\Adapters\\Monolog';
+                    $adapterClass = '\\Logger\\Adapters\\Monolog';
                     break;
             }
         }
-        if (class_exists($adapterClass) && is_subclass_of($adapterClass, '\\Application\\Logger\\Adapter')) {
+        if (class_exists($adapterClass) && is_subclass_of($adapterClass, '\\Logger\\Adapter')) {
             /** @var Adapter $adapter */
             $adapter = new $adapterClass(
                 isset($options['system']) ? $options['system'] : null,
@@ -49,7 +49,7 @@ class Logger {
             self::$provider = $adapter;
             return;
         }
-        throw new WrongLoggerConfigurationException("$adapterClass doesn't inherit \\Application\\Logger\\Adapter");
+        throw new WrongLoggerConfigurationException("$adapterClass doesn't inherit \\Logger\\Adapter");
     }
 
     /**

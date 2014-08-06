@@ -50,11 +50,11 @@ return array(
 
     // make logger configuration run on bootstrap
     'listeners' => array(
-        'Application\Logger\Launcher'
+        'Logger\Launcher'
     ),
     'service_manager' => array(
         'invokables' => array(
-            'Application\Logger\Launcher' => 'Application\Logger\Launcher'
+            'Logger\Launcher' => 'Logger\Launcher'
         )
     ),
 );
